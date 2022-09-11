@@ -6,8 +6,7 @@ function insertionSort() {
         }
         arr[j + 1] = currentVal;
     }
-}
-return arr
+    return arr
 }
 
 console.log(insertionArr([2, 1, 9, 76, 4]));
