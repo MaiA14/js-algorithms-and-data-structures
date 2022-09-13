@@ -77,7 +77,40 @@ class SinglyLinkedList {
         if (!requestedNode)
             return false;
         requestedNode.val = val;
-        return true;c
+        return true;
+    }
+
+    insert(index, val) {
+        if (index < 0 || index > this.length) {
+            return false;
+        } else if (index === this.length) {
+            return !!this.push(val);
+        } else if (index === 0) {
+            return !!this.unshift(val);
+        }
+        let newNode = new Node(val);
+        let prev = this.get(index - 1);
+        let temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+
+    remove(index) {
+        if (index < 0 || this.length >= 0) {
+            return undefined;
+        } else if (index === this.length - 1) {
+            return this.pop();
+        } else if (index === 0) {
+            return this.shift;
+        } else {
+            let prevFoundNode = this.get(index - 1);
+            let removed = prevFoundNode.next;
+            prevFoundNode.next = removed.next;
+            this.length--;
+            return removed;
+        }
     }
 
     size() {
@@ -101,6 +134,33 @@ class SinglyLinkedList {
         this.length--;
         return current;
     }
+
+    print() {
+        let arr = [];
+        let curr = this.head;
+        while (curr) {
+            arr.push(curr.value);
+            curr = curr.next;
+        }
+        console.log(arr);
+    }
+
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let next;
+        prev = null;
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
+
+
 
 
 }
