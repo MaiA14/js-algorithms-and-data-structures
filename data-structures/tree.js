@@ -6,7 +6,6 @@ class Node {
     }
 }
 
-
 class BinarySearchTree {
     constructor() {
         this.root = null;
@@ -94,7 +93,42 @@ class BinarySearchTree {
         return data;
 
     }
+
+    DFSPostOrder() {
+        let data = [];
+        function traverse(node) {
+            if (node.left) {
+                traverse(node.left);
+            }
+            if (node.right) {
+                traverse(node.right);
+            }
+            data.push(node.value);
+        }
+        traverse(current);
+        return data;
+    
+    }
+
+    DFSInOrder() {
+        let data = [];
+        function traverse(node) {
+            if (node.left) {
+                traverse(node.left);
+            }
+
+            data.push(node.value);
+
+            if (node.right) {
+                traverse(node.right);
+            }
+        }
+        traverse(current);
+        return data;
+    
+    }
 }
+
 
 let = new BinarySearchTree();
 this.root = new Node(10);
