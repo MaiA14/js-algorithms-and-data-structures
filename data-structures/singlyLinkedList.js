@@ -24,7 +24,7 @@ class SinglyLinkedList {
             this.tail.next = newNode;
             this.tail = newNode;
         }
-        this.length--;
+        this.length++;
         // there was only one item in list
         if (this.length == 0) {
             this.head = null;
