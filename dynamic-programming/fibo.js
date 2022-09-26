@@ -3,9 +3,11 @@ function fibo_memo(n, memo = []) {
     if (memo[n] !== undefined) {
         return memo[n];
     }
+
     if (n == 1 || n == 2) {
         return 1;
     }
+    
     let res = fibo(n - 1) + fibo(n - 2);
     memo[n] = res;
     return res;
