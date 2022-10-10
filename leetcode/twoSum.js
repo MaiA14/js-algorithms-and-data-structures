@@ -16,5 +16,4 @@ function twoSum(nums, target) {
         map[nums[i]] = i;
     }
 }
-
 // nums = [2,7,11,15], target = 9
